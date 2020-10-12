@@ -1,0 +1,4 @@
+# Created at 2020-10-09T13:17:03.146
+Boot Manifest-JAR contains absolute paths in classpath 'D:\PS\Bootcamp\math-work\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+

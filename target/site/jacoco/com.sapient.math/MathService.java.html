@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MathService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">math-work</a> &gt; <a href="index.source.html" class="el_package">com.sapient.math</a> &gt; <span class="el_source">MathService.java</span></div><h1>MathService.java</h1><pre class="source lang-java linenums">package com.sapient.math;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L6">public class MathService {</span>
+	public String isPrime(int num) {
+<span class="fc bfc" id="L8" title="All 2 branches covered.">		if (num &lt; 0)</span>
+<span class="fc" id="L9">			return &quot;Invalid number&quot;;</span>
+<span class="fc" id="L10">		boolean flag = false;</span>
+<span class="pc bfc" id="L11" title="All 2 branches covered.">		for (int i = 2; i &lt;= num / 2; ++i) {</span>
+			// condition for non-prime number
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">			if (num % i == 0) {</span>
+<span class="fc" id="L14">				flag = true;</span>
+<span class="fc" id="L15">				break;</span>
+			}
+		}
+<span class="fc bfc" id="L18" title="All 2 branches covered.">		if (!flag) {</span>
+<span class="fc" id="L19">			return &quot;Prime&quot;;</span>
+		}
+<span class="fc" id="L21">		return &quot;Non-prime&quot;;</span>
+	}
+
+	public int factorial(int number) {
+		int i;
+<span class="fc" id="L26">		int fact = 1;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">		for (i = 1; i &lt;= number; i++) {</span>
+<span class="fc" id="L28">			fact = fact * i;</span>
+		}
+<span class="fc" id="L30">		return fact;</span>
+	}
+
+	public int fibonacci(int n) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">		if (n &lt; 0)</span>
+<span class="fc" id="L35">			return -1;</span>
+<span class="fc" id="L36">		int[] f = new int[n + 1];</span>
+		int i;
+
+		/* 0th and 1st number of the series are 0 and 1 */
+<span class="fc" id="L40">		f[0] = 0;</span>
+
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">		if (n &gt; 0) {</span>
+<span class="fc" id="L43">			f[1] = 1;</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">			for (i = 2; i &lt;= n; i++) {</span>
+
+<span class="fc" id="L47">				f[i] = f[i - 1] + f[i - 2];</span>
+			}
+		}
+
+<span class="fc" id="L51">		return f[n];</span>
+	}
+
+	public List&lt;Integer&gt; getPrimes(int to, int from) {
+		int i;
+		int j;
+		int flag;
+<span class="fc" id="L58">		List&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		if (to &gt; from) {</span>
+<span class="fc" id="L60">		      int temp = to;</span>
+<span class="fc" id="L61">		      to = from;</span>
+<span class="fc" id="L62">		      from = temp;</span>
+		   }
+<span class="fc bfc" id="L64" title="All 2 branches covered.">		for (i = to; i &lt;= from; i++) {</span>
+
+			// Skip 0 and 1
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">			if (i == 1 || i == 0)</span>
+<span class="nc" id="L68">				continue;</span>
+
+			// flag variable to tell
+			// if i is prime or not
+<span class="fc" id="L72">			flag = 1;</span>
+
+<span class="fc bfc" id="L74" title="All 2 branches covered.">			for (j = 2; j &lt;= i / 2; ++j) {</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">				if (i % j == 0) {</span>
+<span class="fc" id="L76">					flag = 0;</span>
+<span class="fc" id="L77">					break;</span>
+				}
+			}
+
+			// flag = 1 means i is prime
+			// and flag = 0 means i is not prime
+<span class="fc bfc" id="L83" title="All 2 branches covered.">			if (flag == 1)</span>
+<span class="fc" id="L84">				result.add(i);</span>
+		}
+<span class="fc" id="L86">		return result;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
