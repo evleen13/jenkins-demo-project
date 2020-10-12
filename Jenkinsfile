@@ -37,6 +37,7 @@ pipeline {
             echo "executed only when all stages succeed"
             junit '**/*xml'
             archiveArtifacts artifacts: "target/${JAR_FILENAME}-${JAR_VERSION}.jar", followSymlinks: false
+            jacoco()
             deleteDir()
         }
     }
