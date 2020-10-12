@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         JAR_FILENAME = "math-work"
-        JAR_VERSION = "1.0.0-SNAPSHOT"
+        JAR_VERSION = "0.0.1-SNAPSHOT"
     }
 
     stages {
